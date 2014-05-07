@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=ms
+comment0.target=void\ espera(long)
+comment1.params=ms\ s
+comment1.target=void\ escribe(long,\ java.lang.String[])
+comment2.params=s
+comment2.target=void\ escribe(java.lang.String[])
+comment3.params=ms\ separator\ s
+comment3.target=void\ escribe(long,\ boolean,\ java.lang.String[])
+comment4.params=
+comment4.target=java.lang.String\ leeOrden()
+numComments=5

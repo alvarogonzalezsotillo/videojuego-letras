@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=l\ mensaje
+comment0.target=Estado(Lugar,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ descripcion()
+comment2.params=
+comment2.target=java.lang.String\ mensaje()
+comment3.params=orden
+comment3.target=Estado\ ejecutaOrden(java.lang.String)
+numComments=4
