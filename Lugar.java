@@ -8,6 +8,7 @@ import java.util.*;
  */
 public abstract class Lugar
 {
+    
     public class OrdenEjecutada{
         private Lugar _nuevoLugar;
         private String _mensaje;
@@ -39,6 +40,13 @@ public abstract class Lugar
      * Cada vez que se ejecute una orden, podremos cambiar de lugar (o no)
      */
     public OrdenEjecutada ejecutaOrden(String orden){
+        if( orden.equals( "acabar el juego" ) ){
+            Escribidor.escribe( "Aún no se guarda el juego, tendrás que volver a empezar luego.\nAdiós." );
+            System.exit(0);
+        }
+        if( orden.equals( "ayuda" ) ){
+            return new OrdenEjecutada( this, "Tú escribe cosas, a ver qué pasa" );
+        }
         if( orden.startsWith("ir") ){
             return new OrdenEjecutada( this, "Me gustaría ir allí, pero no sé de qué forma" );
         }
@@ -52,21 +60,30 @@ public abstract class Lugar
             return new OrdenEjecutada(this,"Al hacer '" + orden + "' no pasa nada");
         }
     }
+ 
+    public static class ValorDePartida{
+        private String _nombre;
+        private String _valorInicial;
+        
+        public ValorDePartida( String n, String vi ){
+            _nombre = n;
+            _valorInicial = vi;
+        }
+        
+        public String get(){
+            if( _valoresDePartida.containsKey( _nombre ) ){
+                return _valoresDePartida.get(_nombre);
+            }
+            else{
+                return _valorInicial;
+            }
+        }
+        
+        public void set( String valor ){
+            _valoresDePartida.put(_nombre, valor );
+        }
+    }
     
     private static HashMap<String,String> _valoresDePartida = new HashMap<String,String>();
-    
-    public String getValorDePartida( String nombre, String valorInicial ){
-        if( _valoresDePartida.containsKey(nombre) ){
-            return _valoresDePartida.get(nombre);
-        }
-        else{
-            return valorInicial;
-        }
-    }
-    
-    public void setValorDePartida( String nombre, String valor){
-        _valoresDePartida.put(nombre,valor);
-    }
-    
     
 }

@@ -7,10 +7,10 @@
  */
 public class LugarInicial extends Lugar
 {
-    private static String PUERTA = "LugarInicial.puerta";
+    private static ValorDePartida puerta = new ValorDePartida( "LugarInicial.puerta", "cerrada" );
     
     public String descripcion(){
-        String estadoPuerta = getValorDePartida( PUERTA, "cerrada" );
+        String estadoPuerta = puerta.get();
         return "Estás en una habitación que tiene una puerta " + estadoPuerta +
                ". Es una habitación muy sosa, mejor salir de aquí";
     }
@@ -22,7 +22,7 @@ public class LugarInicial extends Lugar
      */
     public OrdenEjecutada ejecutaOrden(String orden){
         if( orden.startsWith( "salir" ) ){ 
-            if( getValorDePartida( PUERTA, "cerrada" ) == "abierta" ){
+            if( puerta.get().equals( "abierta" ) ){
                 return new OrdenEjecutada( new SegundoLugar(), "Sales por la puerta" );
             }
             else{
@@ -30,11 +30,11 @@ public class LugarInicial extends Lugar
             }
         }
         else if( orden.equals( "abrir puerta" ) ){
-            setValorDePartida( PUERTA, "abierta" );
+            puerta.set( "abierta" );
             return new OrdenEjecutada( this, "La puerta se ha abierto" );
         }
         else if( orden.equals( "cerrar puerta" ) ){
-            setValorDePartida( PUERTA, "cerrada" );
+            puerta.set( "cerrada" );
             return new OrdenEjecutada( this, "La puerta se ha cerrado" );
         }
         else{
