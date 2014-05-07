@@ -9,6 +9,10 @@ import java.util.*;
 public abstract class Lugar
 {
     
+    /**
+     * Cuando el lugar ejecuta una orden, devuelve una orden ejecutada, que contiene
+     * el nuevo lugar al que se viaja y un mensaje que ha provocado la nueva orden
+     */
     public class OrdenEjecutada{
         private Lugar _nuevoLugar;
         private String _mensaje;
@@ -61,6 +65,12 @@ public abstract class Lugar
         }
     }
  
+    /**
+     * Todo lo que un lugar debe saber estará guardado en ValorDePartida. Tiene que tener un nombre para
+     * poder identificarlo (por ejemplo, "Habitacion23.luzEncendida") y un valor inicial en el juego (por
+     * ejemplo, "si")
+     * Cuando se grave una partida, se guardarán todos los ValorDePartida y el lugar donde esté el personaje
+     */
     public static class ValorDePartida{
         private String _nombre;
         private String _valorInicial;
